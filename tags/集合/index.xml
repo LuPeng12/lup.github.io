@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>集合 - 标签 - Lup</title>
-        <link>/tags/%E9%9B%86%E5%90%88/</link>
+        <link>https://LuPeng12.github.io/tags/%E9%9B%86%E5%90%88/</link>
         <description>集合 - 标签 - Lup</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
-            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Wed, 20 Apr 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="/tags/%E9%9B%86%E5%90%88/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Wed, 20 Apr 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="https://LuPeng12.github.io/tags/%E9%9B%86%E5%90%88/" rel="self" type="application/rss+xml" /><item>
     <title>Java集合</title>
-    <link>/java%E9%9B%86%E5%90%88/</link>
+    <link>https://LuPeng12.github.io/java%E9%9B%86%E5%90%88/</link>
     <pubDate>Wed, 20 Apr 2022 16:30:05 &#43;0800</pubDate>
     <author>Lup</author>
-    <guid>/java%E9%9B%86%E5%90%88/</guid>
+    <guid>https://LuPeng12.github.io/java%E9%9B%86%E5%90%88/</guid>
     <description><![CDATA[<p>集合不能直接存储基本数据类型，也不能直接存储Java对象。集合当中存储的都是Java对象的内存地址&hellip;</p>]]></description>
 </item>
 </channel>

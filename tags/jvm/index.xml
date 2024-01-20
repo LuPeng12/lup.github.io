@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>JVM - 标签 - Lup</title>
-        <link>/tags/jvm/</link>
+        <link>https://LuPeng12.github.io/tags/jvm/</link>
         <description>JVM - 标签 - Lup</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
-            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Mon, 05 Sep 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="/tags/jvm/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Mon, 05 Sep 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="https://LuPeng12.github.io/tags/jvm/" rel="self" type="application/rss+xml" /><item>
     <title>JVM内存模型和死锁</title>
-    <link>/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</link>
+    <link>https://LuPeng12.github.io/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</link>
     <pubDate>Mon, 05 Sep 2022 16:30:05 &#43;0800</pubDate>
     <author>Lup</author>
-    <guid>/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</guid>
+    <guid>https://LuPeng12.github.io/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</guid>
     <description><![CDATA[<p>JVM内存模型和死锁描述</p>]]></description>
 </item>
 </channel>

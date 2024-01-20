@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Spring - 标签 - Lup</title>
-        <link>/tags/spring/</link>
+        <link>https://LuPeng12.github.io/tags/spring/</link>
         <description>Spring - 标签 - Lup</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
-            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Thu, 05 Jan 2023 16:30:05 &#43;0800</lastBuildDate><atom:link href="/tags/spring/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Thu, 05 Jan 2023 16:30:05 &#43;0800</lastBuildDate><atom:link href="https://LuPeng12.github.io/tags/spring/" rel="self" type="application/rss+xml" /><item>
     <title>Webflux</title>
-    <link>/webflux/</link>
+    <link>https://LuPeng12.github.io/webflux/</link>
     <pubDate>Thu, 05 Jan 2023 16:30:05 &#43;0800</pubDate>
     <author>Lup</author>
-    <guid>/webflux/</guid>
+    <guid>https://LuPeng12.github.io/webflux/</guid>
     <description><![CDATA[<p>Spring WebFlux 是一个异步非阻塞式 IO 模型.</p>]]></description>
 </item>
 <item>
     <title>lambda表达式和四大接口</title>
-    <link>/1.lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+    <link>https://LuPeng12.github.io/1.lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
     <pubDate>Sun, 05 Jun 2022 16:30:05 &#43;0800</pubDate>
     <author>Lup</author>
-    <guid>/1.lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+    <guid>https://LuPeng12.github.io/1.lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
     <description><![CDATA[<p>匿名内部类就是没有名字的内部类，必须在创建时使用 new 语句来声明类。正因为没有名字，所以匿名内部类只能使用一次。使用匿名内部类还有个前提&hellip;</p>]]></description>
 </item>
 </channel>

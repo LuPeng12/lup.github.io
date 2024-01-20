@@ -1,23 +1,23 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>JUC - 标签 - Lup</title>
-        <link>/tags/juc/</link>
+        <link>https://LuPeng12.github.io/tags/juc/</link>
         <description>JUC - 标签 - Lup</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
-            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Mon, 05 Sep 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="/tags/juc/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Mon, 05 Sep 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="https://LuPeng12.github.io/tags/juc/" rel="self" type="application/rss+xml" /><item>
     <title>JVM内存模型和死锁</title>
-    <link>/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</link>
+    <link>https://LuPeng12.github.io/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</link>
     <pubDate>Mon, 05 Sep 2022 16:30:05 &#43;0800</pubDate>
     <author>Lup</author>
-    <guid>/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</guid>
+    <guid>https://LuPeng12.github.io/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</guid>
     <description><![CDATA[<p>JVM内存模型和死锁描述</p>]]></description>
 </item>
 <item>
     <title>Stream中的并行与并发</title>
-    <link>/stream%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/</link>
+    <link>https://LuPeng12.github.io/stream%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/</link>
     <pubDate>Mon, 18 Apr 2022 16:30:05 &#43;0800</pubDate>
     <author>Lup</author>
-    <guid>/stream%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/</guid>
+    <guid>https://LuPeng12.github.io/stream%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/</guid>
     <description><![CDATA[<p>并发的实质是同一个物理CPU上在若干个程序（线程）之间的多路复用，是强制有限的物理资源行使多用户共享来提高效率。而并行则是让多道程序（线程）在同一时刻不同的CPU上运行.</p>]]></description>
 </item>
 </channel>

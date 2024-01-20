@@ -1,8 +1,8 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>文档 - 分类 - Lup</title>
-        <link>/categories/documentation/</link>
+        <link>https://LuPeng12.github.io/categories/documentation/</link>
         <description>文档 - 分类 - Lup</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
-            <webMaster>417535841@qq.com (Lup)</webMaster><atom:link href="/categories/documentation/" rel="self" type="application/rss+xml" /></channel>
+            <webMaster>417535841@qq.com (Lup)</webMaster><atom:link href="https://LuPeng12.github.io/categories/documentation/" rel="self" type="application/rss+xml" /></channel>
 </rss>

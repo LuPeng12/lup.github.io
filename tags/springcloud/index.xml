@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>SpringCloud - 标签 - Lup</title>
-        <link>/tags/springcloud/</link>
+        <link>https://LuPeng12.github.io/tags/springcloud/</link>
         <description>SpringCloud - 标签 - Lup</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
-            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Fri, 20 May 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="/tags/springcloud/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Fri, 20 May 2022 16:30:05 &#43;0800</lastBuildDate><atom:link href="https://LuPeng12.github.io/tags/springcloud/" rel="self" type="application/rss+xml" /><item>
     <title>SpringCloud</title>
-    <link>/springcloud/</link>
+    <link>https://LuPeng12.github.io/springcloud/</link>
     <pubDate>Fri, 20 May 2022 16:30:05 &#43;0800</pubDate>
     <author>Lup</author>
-    <guid>/springcloud/</guid>
+    <guid>https://LuPeng12.github.io/springcloud/</guid>
     <description><![CDATA[<p>SpringCloud</p>]]></description>
 </item>
 </channel>
