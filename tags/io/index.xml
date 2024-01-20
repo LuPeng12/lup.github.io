@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>IO - 标签 - Lup</title>
+        <link>/tags/io/</link>
+        <description>IO - 标签 - Lup</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
+            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Wed, 10 Nov 2021 16:30:05 &#43;0800</lastBuildDate><atom:link href="/tags/io/" rel="self" type="application/rss+xml" /><item>
+    <title>Java文件IO</title>
+    <link>/%E6%96%87%E4%BB%B6io/</link>
+    <pubDate>Wed, 10 Nov 2021 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/%E6%96%87%E4%BB%B6io/</guid>
+    <description><![CDATA[<p>在 Java 中提供了许多关于文件的操作，如 File 类，该类用来封装一个路径，这个路径可以是绝对路径，也可以是相对路径</p>]]></description>
+</item>
+</channel>
+</rss>

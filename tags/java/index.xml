@@ -1,0 +1,88 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Java - 标签 - Lup</title>
+        <link>/tags/java/</link>
+        <description>Java - 标签 - Lup</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>417535841@qq.com (Lup)</managingEditor>
+            <webMaster>417535841@qq.com (Lup)</webMaster><lastBuildDate>Thu, 05 Jan 2023 16:30:05 &#43;0800</lastBuildDate><atom:link href="/tags/java/" rel="self" type="application/rss+xml" /><item>
+    <title>Webflux</title>
+    <link>/webflux/</link>
+    <pubDate>Thu, 05 Jan 2023 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/webflux/</guid>
+    <description><![CDATA[<p>Spring WebFlux 是一个异步非阻塞式 IO 模型.</p>]]></description>
+</item>
+<item>
+    <title>JVM内存模型和死锁</title>
+    <link>/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</link>
+    <pubDate>Mon, 05 Sep 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/</guid>
+    <description><![CDATA[<p>JVM内存模型和死锁描述</p>]]></description>
+</item>
+<item>
+    <title>java.time包</title>
+    <link>/java%E4%B9%8Btime%E5%8C%85/</link>
+    <pubDate>Fri, 05 Aug 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/java%E4%B9%8Btime%E5%8C%85/</guid>
+    <description><![CDATA[<p><a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html" target="_blank" rel="noopener noreffer ">java.time 包</a>是在JDK8新引入的，提供了用于日期、时间和实例的主要API。使用instants, durations, dates, times, time-zones 等类定义的工厂方法。Date-Time API中的所有类均生成不可变的实例，所有实例都是不可变的</p>]]></description>
+</item>
+<item>
+    <title>Java注解和反射</title>
+    <link>/java%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/</link>
+    <pubDate>Tue, 05 Jul 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/java%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/</guid>
+    <description><![CDATA[<p>Java 注解（Annotation）又称 Java 标注，是 JDK5.0 引入的一种机制。Java 语言中的类、方法、变量、参数和包等都可以被标注&hellip;.</p>]]></description>
+</item>
+<item>
+    <title>Java枚举</title>
+    <link>/java%E6%9E%9A%E4%B8%BE/</link>
+    <pubDate>Sun, 05 Jun 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/java%E6%9E%9A%E4%B8%BE/</guid>
+    <description><![CDATA[<p>枚举类型（enum type）是指由一组常量组成合法值的类型&hellip;</p>]]></description>
+</item>
+<item>
+    <title>lambda表达式和四大接口</title>
+    <link>/1.lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</link>
+    <pubDate>Sun, 05 Jun 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/1.lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</guid>
+    <description><![CDATA[<p>匿名内部类就是没有名字的内部类，必须在创建时使用 new 语句来声明类。正因为没有名字，所以匿名内部类只能使用一次。使用匿名内部类还有个前提&hellip;</p>]]></description>
+</item>
+<item>
+    <title>Java集合</title>
+    <link>/java%E9%9B%86%E5%90%88/</link>
+    <pubDate>Wed, 20 Apr 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/java%E9%9B%86%E5%90%88/</guid>
+    <description><![CDATA[<p>集合不能直接存储基本数据类型，也不能直接存储Java对象。集合当中存储的都是Java对象的内存地址&hellip;</p>]]></description>
+</item>
+<item>
+    <title>Stream中的并行与并发</title>
+    <link>/stream%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/</link>
+    <pubDate>Mon, 18 Apr 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/stream%E4%B8%AD%E7%9A%84%E5%B9%B6%E8%A1%8C%E4%B8%8E%E5%B9%B6%E5%8F%91/</guid>
+    <description><![CDATA[<p>并发的实质是同一个物理CPU上在若干个程序（线程）之间的多路复用，是强制有限的物理资源行使多用户共享来提高效率。而并行则是让多道程序（线程）在同一时刻不同的CPU上运行.</p>]]></description>
+</item>
+<item>
+    <title>java泛型</title>
+    <link>/java%E6%B3%9B%E5%9E%8B/</link>
+    <pubDate>Wed, 06 Apr 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/java%E6%B3%9B%E5%9E%8B/</guid>
+    <description><![CDATA[<p>泛型在java中有很重要的地位，在面向对象编程及各种设计模式中有非常广泛的应用..</p>]]></description>
+</item>
+<item>
+    <title>比较器和收集器</title>
+    <link>/%E6%AF%94%E8%BE%83%E5%99%A8%E5%92%8C%E6%94%B6%E9%9B%86%E5%99%A8/</link>
+    <pubDate>Sat, 05 Mar 2022 16:30:05 &#43;0800</pubDate>
+    <author>Lup</author>
+    <guid>/%E6%AF%94%E8%BE%83%E5%99%A8%E5%92%8C%E6%94%B6%E9%9B%86%E5%99%A8/</guid>
+    <description><![CDATA[<p>流基本操作分为中间操作和终止操作，中间操作包括<code>filter</code>，<code>map</code>，<code>limit</code>，<code>sorted</code>，<code>distinct</code>等，终止操作包&hellip;</p>]]></description>
+</item>
+</channel>
+</rss>

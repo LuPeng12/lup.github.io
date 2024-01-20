@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>java.time包 - Lup</title><meta name="Description" content="了解java.time包"><meta property="og:title" content="java.time包" />
+<meta property="og:description" content="了解java.time包" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/java%E4%B9%8Btime%E5%8C%85/" /><meta property="og:image" content="/%E9%A6%96%E9%A1%B5%E4%B8%AD%E9%97%B4%E7%9A%84%E5%9B%BE%E7%89%87" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-08-05T16:30:05+08:00" />
+<meta property="article:modified_time" content="2022-08-05T16:30:05+08:00" /><meta property="og:site_name" content="Stilig的博客" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="/%E9%A6%96%E9%A1%B5%E4%B8%AD%E9%97%B4%E7%9A%84%E5%9B%BE%E7%89%87" /><meta name="twitter:title" content="java.time包"/>
+<meta name="twitter:description" content="了解java.time包"/>
+<meta name="application-name" content="Lup">
+<meta name="apple-mobile-web-app-title" content="Lup"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/java%E4%B9%8Btime%E5%8C%85/" /><link rel="prev" href="/java%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/" /><link rel="next" href="/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/" /><link rel="stylesheet" href="/css/style.min.cf6878db51c51b2d04ae155284a4403dbee8db33e16c066f954c95279c271fcd.css" integrity="sha256-z2h421HFGy0ErhVShKRAPb7o2zPhbAZvlUyVJ5wnH80="><link rel="preload" href="/lib/fontawesome-free/all.min.f0c7b8d85cf716a020ea19fac22314de48452bc98568517fabdb0ca99ce66930.css" integrity="sha256-8Me42Fz3FqAg6hn6wiMU3khFK8mFaFF/q9sMqZzmaTA=" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.f0c7b8d85cf716a020ea19fac22314de48452bc98568517fabdb0ca99ce66930.css" integrity="sha256-8Me42Fz3FqAg6hn6wiMU3khFK8mFaFF/q9sMqZzmaTA="></noscript><link rel="preload" href="/lib/animate/animate.min.a61e123314188bd0453320008e01b4bbb665bee09039f4cbd9bef44de410ce67.css" integrity="sha256-ph4SMxQYi9BFMyAAjgG0u7ZlvuCQOfTL2b70TeQQzmc=" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="/lib/animate/animate.min.a61e123314188bd0453320008e01b4bbb665bee09039f4cbd9bef44de410ce67.css" integrity="sha256-ph4SMxQYi9BFMyAAjgG0u7ZlvuCQOfTL2b70TeQQzmc="></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "java.time包",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/java%E4%B9%8Btime%E5%8C%85\/"
+        },"genre": "posts","keywords": "Java","wordcount":  7602 ,
+        "url": "\/java%E4%B9%8Btime%E5%8C%85\/","datePublished": "2022-08-05T16:30:05+08:00","dateModified": "2022-08-05T16:30:05+08:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Lup"
+            },"description": "了解java.time包"
+    }
+    </script></head>
+    <body data-header-desktop="normal" data-header-mobile="normal"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('light' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'light' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Lup"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/lu.png"
+        data-srcset="/images/lu.png, /images/lu.png 1.5x, /images/lu.png 2x"
+        data-sizes="auto"
+        alt="/images/lu.png"
+        title="/images/lu.png" />Lup</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><a class="menu-item" href="/about/" title="About"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Lup"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/lu.png"
+        data-srcset="/images/lu.png, /images/lu.png 1.5x, /images/lu.png 2x"
+        data-sizes="auto"
+        alt="/images/lu.png"
+        title="/images/lu.png" />Lup</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw" aria-hidden="true"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin" aria-hidden="true"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a class="menu-item" href="/about/" title="About">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><div class="search-dropdown desktop">
+        <div id="search-dropdown-desktop"></div>
+    </div>
+    <div class="search-dropdown mobile">
+        <div id="search-dropdown-mobile"></div>
+    </div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content always-active" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">java.time包</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Lup</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/java/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>Java</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-05">2022-08-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 7602 字&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 16 分钟&nbsp;
+    
+
+    
+        
+
+        
+        
+            <span id="busuanzi_container_value_page_pv"><i class="far fa-eye fa-fw"></i>
+                
+                <span id="busuanzi_value_page_pv"></span>&nbsp;次阅读</span>
+        
+    
+
+</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#概述">概述</a></li>
+        <li><a href="#一些类的介绍">一些类的介绍</a></li>
+        <li><a href="#方法概览">方法概览</a></li>
+      </ul>
+    </li>
+    <li><a href="#根据现有实例创建日期和时间">根据现有实例创建日期和时间</a>
+      <ul>
+        <li><a href="#小结">小结</a></li>
+      </ul>
+    </li>
+    <li><a href="#调节器与查询"><strong>调节器与查询</strong></a></li>
+    <li><a href="#解析与格式化">解析与格式化</a></li>
+    <li><a href="#获取事件之间的时间"><strong>获取事件之间的时间</strong></a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p><a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html" target="_blank" rel="noopener noreffer ">java.time 包</a>是在JDK8新引入的，提供了用于日期、时间和实例的主要API。使用instants, durations, dates, times, time-zones 等类定义的工厂方法。Date-Time API中的所有类均生成不可变的实例，所有实例都是不可变的</p>
+<h1 id="java-8-之-javatime-包">Java 8 之 java.time 包</h1>
+<h3 id="概述">概述</h3>
+<p><a href="http://download.java.net/jdk8/docs/api/java/time/package-summary.html" target="_blank" rel="noopener noreffer ">java.time 包</a>是在JDK8新引入的，提供了用于日期、时间和实例的主要API。使用instants, durations, dates, times, time-zones 等类定义的工厂方法。Date-Time API中的所有类均生成不可变的实例，所有实例都是不可变的。由于这些类不提供公共构造函数，需要采用工厂方法加以实例化。（of,now两种静态工厂方法）</p>
+<h3 id="一些类的介绍">一些类的介绍</h3>
+<ul>
+<li>LocalDateTime:存储了日期和时间，如：<code>2013-10-15T14:43:14.539</code>。</li>
+<li>LocalDate:存储了日期，如：<code>2013-10-15</code>。</li>
+<li>LocalTime:存储了时间，如：<code>14:43:14.539</code>。</li>
+<li><strong>Instant类</strong>
+Instant类对时间轴上的单一瞬时点建模，可以用于记录应用程序中的事件时间戳</li>
+<li><strong>Duration类</strong>
+Duration类表示秒或纳秒时间间隔，适合处理较短的时间，需要更高的精确性。</li>
+<li><strong>Period类</strong>
+Period类表示一段时间的年、月、日。</li>
+<li><strong>ZonedDateTime类</strong>
+ZonedDateTime是具有时区的日期时间的不可变表示，此类存储所有日期和时间字段，精度为纳秒，时区为区域偏移量，用于处理本地日期时间。</li>
+</ul>
+<p>上面的类可以由下面的类组合来：</p>
+<ul>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/Year.html" target="_blank" rel="noopener noreffer ">Year</a>：表示年份。</li>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/Month.html" target="_blank" rel="noopener noreffer ">Month</a>：表示月份。</li>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/YearMonth.html" target="_blank" rel="noopener noreffer ">YearMonth</a>：表示年月。</li>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/MonthDay.html" target="_blank" rel="noopener noreffer ">MonthDay</a>：表示月日。</li>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/DayOfWeek.html" target="_blank" rel="noopener noreffer ">DayOfWeek</a>：存储星期的一天。</li>
+</ul>
+<p>用now创建实例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java.time.*;
+</span></span><span class="line"><span class="cl">public class One {
+</span></span><span class="line"><span class="cl">    public static void main(String[] args) {
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;Instant.now()&#34;+ Instant.now());
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;LocalDate.now()&#34;+ LocalDate.now());
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;LocalTime.now()&#34;+ LocalTime.now());
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;LocalDateTime.now()&#34;+ LocalDateTime.now());
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;ZonedDateTime.now()&#34;+ ZonedDateTime.now());
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">结果是：
+</span></span><span class="line"><span class="cl">Instant.now()2022-10-03T06:36:24.599Z
+</span></span><span class="line"><span class="cl">LocalDate.now()2022-10-03
+</span></span><span class="line"><span class="cl">LocalTime.now()14:36:24.662
+</span></span><span class="line"><span class="cl">LocalDateTime.now()2022-10-03T14:36:24.662
+</span></span><span class="line"><span class="cl">ZonedDateTime.now()2022-10-03T14:36:24.662+08:00[Asia/Shanghai]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在英国伦敦（Europe/London）它的偏移量是Z，代表+00:00偏移量，属于0时区、0偏移量地区，格林威治是世界的“时间中心”。格林尼治标准时间（旧译<a href="https://baike.baidu.com/item/%e6%a0%bc%e6%9e%97%e5%a8%81%e6%b2%bb?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">格林威治</a>平均时间或<a href="https://baike.baidu.com/item/%e6%a0%bc%e6%9e%97%e5%a8%81%e6%b2%bb%e6%a0%87%e5%87%86%e6%97%b6%e9%97%b4/4895434?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">格林威治标准时间</a>；英语：GreenwichMeanTime，<a href="https://baike.baidu.com/item/GMT?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">GMT</a>）是指位于<a href="https://baike.baidu.com/item/%e8%8b%b1%e5%9b%bd%e4%bc%a6%e6%95%a6/1291205?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">英国伦敦</a>郊区的皇家格林尼治天文台的标准时间，因为<a href="https://baike.baidu.com/item/%e6%9c%ac%e5%88%9d%e5%ad%90%e5%8d%88%e7%ba%bf?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">本初子午线</a>被定义在通过那里的<a href="https://baike.baidu.com/item/%e7%bb%8f%e7%ba%bf/1695723?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">经线</a>。理论上来说，格林尼治标准时间的正午是指当太阳横穿<a href="https://baike.baidu.com/item/%e6%a0%bc%e6%9e%97%e5%b0%bc%e6%b2%bb%e5%ad%90%e5%8d%88%e7%ba%bf/5906804?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">格林尼治子午线</a>时（也就是在格林尼治时）的时间。由于地球在它的<a href="https://baike.baidu.com/item/%e6%a4%ad%e5%9c%86%e8%bd%a8%e9%81%93/9150757?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">椭圆轨道</a>里的<a href="https://baike.baidu.com/item/%e8%bf%90%e5%8a%a8%e9%80%9f%e5%ba%a6/3655127?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">运动速度</a>不均匀，这个时刻可能和实际的<a href="https://baike.baidu.com/item/%e5%a4%aa%e9%98%b3%e6%97%b6/3389449?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">太阳时</a>相差16分钟。地球每天的自转是有些不规则的，而且正在缓慢减速。所以，格林尼治时间已经不再被作为标准时间使用。用标准时间──<a href="https://baike.baidu.com/item/%e5%8d%8f%e8%b0%83%e4%b8%96%e7%95%8c%e6%97%b6?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">协调世界时</a>（<a href="https://baike.baidu.com/item/UTC?fromModule=lemma_inlink" target="_blank" rel="noopener noreffer ">UTC</a>）──由原子钟来代替。</p>
+<p>下面列出世界主要城市时区ID对应的UTC偏移量：</p>
+<table>
+<thead>
+<tr>
+<th><strong>时区ID</strong></th>
+<th><strong>UTC偏移</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Asia/Shanghai</td>
+<td>+08:00</td>
+</tr>
+<tr>
+<td>Asia/Chongqing</td>
+<td>+08:00</td>
+</tr>
+<tr>
+<td>America/New_York</td>
+<td>-05:00</td>
+</tr>
+<tr>
+<td><strong>Europe/London</strong></td>
+<td>Z</td>
+</tr>
+<tr>
+<td>Europe/Paris</td>
+<td>+01:00</td>
+</tr>
+<tr>
+<td>Europe/Moscow</td>
+<td>+03:00</td>
+</tr>
+<tr>
+<td>Asia/Tokyo</td>
+<td>+09:00</td>
+</tr>
+<tr>
+<td>Asia/Dubai</td>
+<td>+04:00</td>
+</tr>
+<tr>
+<td>Asia/Seoul</td>
+<td>+09:00</td>
+</tr>
+<tr>
+<td>Asia/Bangkok</td>
+<td>+07:00</td>
+</tr>
+<tr>
+<td>Asia/Jakarta</td>
+<td>+07:00</td>
+</tr>
+</tbody>
+</table>
+<p>上面的例子所有输出值均使用ISO 8601标准格式。日期的基本格式为yyyy-MM-dd，而时间的基本格式为hh:mm:ss.sss。LocalDateTime类将两种格式合并，中间用大写字母T隔开。ZonedDateTime类用于显示包含时区信息的日期和时间，在后面添加了一个UTC偏移量以及地区名。Instant类定义的toString方法将输出以祖鲁时间（Zulu time）显示的当前时间。</p>
+<p>静态方法of用于生成新的值。对于LocalDate类而言，of方法的参数为年、月（枚举或整形）、日。of方法可以根据给定的参数生成对应的日期/时间对象，基本上每个基本类都有of方法用于生成的对应的对象。</p>
+<p>给你提供了静态的构造方法，不能new,它们都是private</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="C:%5cUsers%5c86182%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20221009154911429.png"
+        data-srcset="C:%5cUsers%5c86182%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20221009154911429.png, C:%5cUsers%5c86182%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20221009154911429.png 1.5x, C:%5cUsers%5c86182%5cAppData%5cRoaming%5cTypora%5ctypora-user-images%5cimage-20221009154911429.png 2x"
+        data-sizes="auto"
+        alt="C:\Users\86182\AppData\Roaming\Typora\typora-user-images\image-20221009154911429.png"
+        title="image-20221009154911429" /></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java.time.LocalDate;
+</span></span><span class="line"><span class="cl">import java.time.LocalDateTime;
+</span></span><span class="line"><span class="cl">import java.time.LocalTime;
+</span></span><span class="line"><span class="cl">import java.time.Month;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public class Armstrong {
+</span></span><span class="line"><span class="cl">    public static void main(String[] args) {
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;First landing on the Moon:&#34;);
+</span></span><span class="line"><span class="cl">        LocalDate moonLandingDate=LocalDate.of(1969, Month.JULY,20);
+</span></span><span class="line"><span class="cl">        LocalTime moonLandingTime= LocalTime.of(20,18);
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;Date:&#34;+moonLandingDate);
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;Time:&#34;+moonLandingTime);
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;Neil Armstrong steps onto the surface:&#34;);
+</span></span><span class="line"><span class="cl">        LocalTime walkTime=LocalTime.of(20,2,56,150_000_000);
+</span></span><span class="line"><span class="cl">        LocalDateTime walk=LocalDateTime.of(moonLandingDate,walkTime);
+</span></span><span class="line"><span class="cl">        System.out.println(walk);
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">结果是：
+</span></span><span class="line"><span class="cl">First landing on the Moon:
+</span></span><span class="line"><span class="cl">Date:1969-07-20
+</span></span><span class="line"><span class="cl">Time:20:18
+</span></span><span class="line"><span class="cl">Neil Armstrong steps onto the surface:
+</span></span><span class="line"><span class="cl">1969-07-20T20:02:56.150
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="方法概览">方法概览</h3>
+<p>Date-Time包中的API提供了大量相关的方法，这些方法一般有一致的方法前缀：</p>
+<p>静态工厂：</p>
+<ul>
+<li>of：静态工厂方法。创建实例</li>
+<li>parse：静态工厂方法，解析输入字符串。</li>
+</ul>
+<p>实例：</p>
+<ul>
+<li>format: 实例。生成格式化输出。</li>
+<li>get：返回对象状态的一部分。</li>
+<li>is：查询对象状态。</li>
+<li>with：通过修改现有对象的某个元素来创建新对象。</li>
+<li>plus：加一些量到某个对象来创建新对象。</li>
+<li>minus：从某个对象减去一些量来创建新对象。</li>
+<li>at：将对象与另一个对象组合起来，例如：<code>date.atTime(time)</code>。</li>
+</ul>
+<p><strong>例子：用at方法为本地日期和时间添加时区。</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import java.time.LocalDateTime;
+</span></span><span class="line"><span class="cl">import java.time.Month;
+</span></span><span class="line"><span class="cl">import java.time.ZoneId;
+</span></span><span class="line"><span class="cl">import java.time.ZonedDateTime;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public class eightfour {
+</span></span><span class="line"><span class="cl">    public static void main(String[] args) {
+</span></span><span class="line"><span class="cl">        LocalDateTime dateTime= LocalDateTime.of(2017, Month.JULY,4,13,20,10);
+</span></span><span class="line"><span class="cl">        ZonedDateTime nyc=dateTime.atZone(ZoneId.of(&#34;America/New_York&#34;));
+</span></span><span class="line"><span class="cl">        System.out.println(nyc);
+</span></span><span class="line"><span class="cl">        ZonedDateTime london=nyc.withZoneSameInstant(ZoneId.of(&#34;Europe/London&#34;));//**withZoneSameInstant方法传入一个ZonedId,并查找另一个时区的日期和时间。**
+</span></span><span class="line"><span class="cl">        System.out.println(london);
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">结果为：
+</span></span><span class="line"><span class="cl">2017-07-04T13:20:10-04:00[America/New_York]
+</span></span><span class="line"><span class="cl">2017-07-04T18:20:10+01:00[Europe/London]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>withZoneSameInstant方法传入一个ZonedId,并查找另一个时区的日期和时间。</strong></p>
+<p>toEpochSecond() 方法用于将此 LocalTime 转换为自 1970-01-01T00:00:00Z 纪元以来的秒数。该方法将此本地时间与作为参数传递的指定日期和偏移量相结合，以计算纪元秒值，即从 1970-01-01T00:00:00Z 开始经过的秒数。纪元之后时间轴上的瞬间为正，更早为负。另外，java-time包中引入了Month和DayOfWeek两种枚举。Month包括标准日历中12个月份的常量（从JANUARY到DECEMBER）</p>
+<p>DayOfWeek枚举包括7个工作日的常量（从Monday到Sunday）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.DayOfWeek</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Month</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.MonthDay</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">monthenum</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Days in Feb in a leap year:&#34;</span><span class="o">+</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">FEBRUARY</span><span class="p">.</span><span class="na">length</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Days of year for first day of Aug(leap year):&#34;</span><span class="o">+</span><span class="n">Month</span><span class="p">.</span><span class="na">AUGUST</span><span class="p">.</span><span class="na">firstDayOfYear</span><span class="p">(</span><span class="kc">true</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Month.of(1):&#34;</span><span class="o">+</span><span class="n">Month</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">1</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;dayofweek&#34;</span><span class="o">+</span><span class="w"> </span><span class="n">DayOfWeek</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">7</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Adding two months:&#34;</span><span class="o">+</span><span class="n">Month</span><span class="p">.</span><span class="na">JANUARY</span><span class="p">.</span><span class="na">plus</span><span class="p">(</span><span class="n">2</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Subtracting a month:&#34;</span><span class="o">+</span><span class="n">Month</span><span class="p">.</span><span class="na">MARCH</span><span class="p">.</span><span class="na">minus</span><span class="p">(</span><span class="n">1</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">结果为</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Days</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">Feb</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">leap</span><span class="w"> </span><span class="n">year</span><span class="p">:</span><span class="n">29</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Days</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">year</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="nf">Aug</span><span class="p">(</span><span class="n">leap</span><span class="w"> </span><span class="n">year</span><span class="p">):</span><span class="n">214</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Month</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">1</span><span class="p">):</span><span class="n">JANUARY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">dayofweekSUNDAY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Adding</span><span class="w"> </span><span class="n">two</span><span class="w"> </span><span class="n">months</span><span class="p">:</span><span class="n">MARCH</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Subtracting</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">month</span><span class="p">:</span><span class="n">FEBRUARY</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Process</span><span class="w"> </span><span class="n">finished</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">exit</span><span class="w"> </span><span class="n">code</span><span class="w"> </span><span class="n">0</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>java.time包中的类是不可变的，如果实例方法（如plus、minus或with）试图修改某个类，将生成一个新的实例。</strong></p>
+<h2 id="根据现有实例创建日期和时间">根据现有实例创建日期和时间</h2>
+<p>用户希望修改date-time API中的某个类现有实例</p>
+<p>加减用plus或minus，其余用with</p>
+<p>以LocalDate为例，它定义了多种对日期进行增减操作的方法，包括：</p>
+<p>LocalDate plusDay(long days) 增加天数
+LocalDate plusWeeks(long weeks) 增加周数
+LocalDate plusMonths(long months) 增加月数
+LocalDate plusYears(long years) 增加年数</p>
+<p>以上方法均返回一个新的localDate，它是当前日期的副本，并添加了指定的值</p>
+<p>我们要进行格式化显示，就要使用<code>DateTimeFormatter</code>。<code>DateTimeFormatter</code>可以只创建一个实例，到处引用。</p>
+<p>创建<code>DateTimeFormatter</code>时，我们仍然通过传入格式化字符串实现：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&#34;yyyy-MM-dd HH:mm:ss:sss&#34;);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>另一种创建<code>DateTimeFormatter</code>的方法是，传入格式化字符串时，同时指定<code>Locale</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(&#34;E, yyyy-MMMM-dd HH:mm&#34;, Locale.US);
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>这种方式可以按照<code>Locale</code>默认习惯格式化。我们来看实际效果：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">import</span> <span class="n">java</span><span class="o">.</span><span class="n">time</span><span class="o">.*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">java</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">format</span><span class="o">.*</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">import</span> <span class="n">java</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">Locale</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">public</span> <span class="k">class</span> <span class="n">Main</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">public</span> <span class="k">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="ne">String</span><span class="p">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">ZonedDateTime</span> <span class="n">zdt</span> <span class="o">=</span> <span class="n">ZonedDateTime</span><span class="o">.</span><span class="n">now</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">formatter</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="o">.</span><span class="n">ofPattern</span><span class="p">(</span><span class="s2">&#34;yyyy-MM-dd&#39;T&#39;HH:mm ZZZZ&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">formatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zdt</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">zhFormatter</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="o">.</span><span class="n">ofPattern</span><span class="p">(</span><span class="s2">&#34;yyyy MMM dd EE HH:mm&#34;</span><span class="p">,</span> <span class="n">Locale</span><span class="o">.</span><span class="n">CHINA</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">zhFormatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zdt</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">var</span> <span class="n">usFormatter</span> <span class="o">=</span> <span class="n">DateTimeFormatter</span><span class="o">.</span><span class="n">ofPattern</span><span class="p">(</span><span class="s2">&#34;E, MMMM/dd/yyyy HH:mm&#34;</span><span class="p">,</span> <span class="n">Locale</span><span class="o">.</span><span class="n">US</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">usFormatter</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">zdt</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">结果是：</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2022</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">08</span><span class="n">T15</span><span class="p">:</span><span class="mi">34</span> <span class="n">GMT</span><span class="o">+</span><span class="mi">08</span><span class="p">:</span><span class="mi">00</span>
+</span></span><span class="line"><span class="cl"><span class="mi">2022</span> <span class="err">十月</span> <span class="mi">08</span> <span class="err">星期六</span> <span class="mi">15</span><span class="p">:</span><span class="mi">34</span>
+</span></span><span class="line"><span class="cl"><span class="n">Sat</span><span class="p">,</span> <span class="n">October</span><span class="o">/</span><span class="mi">08</span><span class="o">/</span><span class="mi">2022</span> <span class="mi">15</span><span class="p">:</span><span class="mi">34</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>在格式化字符串中，如果需要输出固定字符，可以用<code>'zzz'</code>表示。</p>
+<p>当我们直接调用<code>System.out.println()</code>对一个<code>ZonedDateTime</code>或者<code>LocalDateTime</code>实例进行打印的时候，实际上，调用的是它们的<code>toString()</code>方法，默认的<code>toString()</code>方法显示的字符串就是按照<code>ISO 8601</code>格式显示的，我们可以通过<code>DateTimeFormatter</code>预定义的几个静态变量来引用：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">var</span> <span class="n">ldt</span> <span class="o">=</span> <span class="n">LocalDateTime</span><span class="o">.</span><span class="n">now</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="o">.</span><span class="n">ISO_DATE</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ldt</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="n">System</span><span class="o">.</span><span class="n">out</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="o">.</span><span class="n">ISO_DATE_TIME</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ldt</span><span class="p">));</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>得到的输出和<code>toString()</code>类似：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">2019-09-15
+</span></span><span class="line"><span class="cl">2019-09-15T23:16:51.56217
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="小结">小结</h3>
+<p>对<code>ZonedDateTime</code>或<code>LocalDateTime</code>进行格式化，需要使用<code>DateTimeFormatter</code>类；</p>
+<p><code>DateTimeFormatter</code>可以通过格式化字符串和<code>Locale</code>对日期和时间进行定制输出。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">import org.junit.Test;
+</span></span><span class="line"><span class="cl">import java.time.LocalDate;
+</span></span><span class="line"><span class="cl">import java.time.LocalTime;
+</span></span><span class="line"><span class="cl">import java.time.Month;
+</span></span><span class="line"><span class="cl">import java.time.format.DateTimeFormatter;
+</span></span><span class="line"><span class="cl">import static org.junit.Assert.assertEquals;
+</span></span><span class="line"><span class="cl">public class eightsix {
+</span></span><span class="line"><span class="cl">    @Test
+</span></span><span class="line"><span class="cl">    public void localDatePlus() throws Exception{
+</span></span><span class="line"><span class="cl">        DateTimeFormatter formatter=DateTimeFormatter.ofPattern(&#34;yyyy-MM-dd&#34;);
+</span></span><span class="line"><span class="cl">        LocalDate start=LocalDate.of(2017, Month.FEBRUARY,2);
+</span></span><span class="line"><span class="cl">        LocalDate end=start.plusDays(3);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;2017-02-05&#34;,end.format(formatter));//assertequals断言，去判断写入的值与它是否相等，相等则不报错。
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">        end=start.plusWeeks(5);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;2017-03-09&#34;,end.format(formatter));
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">        end=start.plusMonths(7);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;2017-09-02&#34;,end.format(formatter));
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">        end=start.plusYears(2);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;2019-02-02&#34;,end.format(formatter));
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    @Test
+</span></span><span class="line"><span class="cl">    public void localTimePlus() throws Exception{
+</span></span><span class="line"><span class="cl">        DateTimeFormatter formatter=DateTimeFormatter.ISO_LOCAL_TIME;
+</span></span><span class="line"><span class="cl">        LocalTime start=LocalTime.of(11,30,0,0);
+</span></span><span class="line"><span class="cl">        LocalTime end=start.plusNanos(1000000);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;11:30:00.001&#34;,end.format(formatter));
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">        end=start.plusSeconds(20);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;11:30:20&#34;,end.format(formatter));
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">        end=start.plusMinutes(45);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;12:15:00&#34;,end.format(formatter));
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">        end=start.plusHours(5);
+</span></span><span class="line"><span class="cl">        assertEquals(&#34;16:30:00&#34;,end.format(formatter));
+</span></span><span class="line"><span class="cl">        System.out.println(end.format(formatter));
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">结果是：
+</span></span><span class="line"><span class="cl">2017-02-05
+</span></span><span class="line"><span class="cl">2017-03-09
+</span></span><span class="line"><span class="cl">2017-09-02
+</span></span><span class="line"><span class="cl">2019-02-02
+</span></span><span class="line"><span class="cl">11:30:00.001
+</span></span><span class="line"><span class="cl">11:30:20
+</span></span><span class="line"><span class="cl">12:15:00
+</span></span><span class="line"><span class="cl">16:30:00
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>assertequals断言，去判断写入的值与它是否相等，相等则不报错。</p>
+<p><strong>with将时间修改成指定值。</strong></p>
+<p>每种类都定义了一系列with方法，可以一次修改一个字段。</p>
+<p>with方法用于处理日期和时间并提供了很多种修改时间的方式
+LocalDateTime withNano(int i) 修改纳秒
+LocalDateTime withSecond(int i) 修改秒
+LocalDateTime withMinute(int i) 修改分钟
+LocalDateTime withHour(int i) 修改小时
+LocalDateTime withDayOfMonth(int i) 修改日
+LocalDateTime withMonth(int i) 修改月
+LocalDateTime withYear(int i) 修改年</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.Test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.DateTimeException</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDateTime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Month</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.format.DateTimeFormatter</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.Assert.assertEquals</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">eighteight</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">with</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2017</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">FEBRUARY</span><span class="p">,</span><span class="n">2</span><span class="p">,</span><span class="n">11</span><span class="p">,</span><span class="n">30</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">withMinute</span><span class="p">(</span><span class="n">45</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2017-02-02T11:45:00&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">withHour</span><span class="p">(</span><span class="n">16</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2017-02-02T16:30:00&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">withDayOfMonth</span><span class="p">(</span><span class="n">28</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2017-02-28T11:30:00&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">withDayOfYear</span><span class="p">(</span><span class="n">300</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2017-10-27T11:30:00&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">withYear</span><span class="p">(</span><span class="n">2020</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2020-02-02T11:30:00&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ISO_DATE_TIME</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="p">()</span><span class="c1">//在括号里写expected=DateTimeException.class,很意外</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">withInvalidDate</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2017</span><span class="p">,</span><span class="n">Month</span><span class="p">.</span><span class="na">FEBRUARY</span><span class="p">,</span><span class="n">2</span><span class="p">,</span><span class="n">11</span><span class="p">,</span><span class="n">30</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">start</span><span class="p">.</span><span class="na">withDayOfMonth</span><span class="p">(</span><span class="n">29</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">结果是</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2017</span><span class="o">-</span><span class="n">02</span><span class="o">-</span><span class="n">02T11</span><span class="p">:</span><span class="n">45</span><span class="p">:</span><span class="n">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2017</span><span class="o">-</span><span class="n">02</span><span class="o">-</span><span class="n">02T16</span><span class="p">:</span><span class="n">30</span><span class="p">:</span><span class="n">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2017</span><span class="o">-</span><span class="n">02</span><span class="o">-</span><span class="n">28T11</span><span class="p">:</span><span class="n">30</span><span class="p">:</span><span class="n">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2017</span><span class="o">-</span><span class="n">10</span><span class="o">-</span><span class="n">27T11</span><span class="p">:</span><span class="n">30</span><span class="p">:</span><span class="n">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2020</span><span class="o">-</span><span class="n">02</span><span class="o">-</span><span class="n">02T11</span><span class="p">:</span><span class="n">30</span><span class="p">:</span><span class="n">00</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">java</span><span class="p">.</span><span class="na">time</span><span class="p">.</span><span class="na">DateTimeException</span><span class="p">:</span><span class="w"> </span><span class="n">Invalid</span><span class="w"> </span><span class="n">date</span><span class="w"> </span><span class="err">&#39;</span><span class="n">February</span><span class="w"> </span><span class="n">29</span><span class="err">&#39;</span><span class="w"> </span><span class="n">as</span><span class="w"> </span><span class="err">&#39;</span><span class="n">2017</span><span class="err">&#39;</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">not</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">leap</span><span class="w"> </span><span class="n">year</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">time</span><span class="p">.</span><span class="na">LocalDate</span><span class="p">.</span><span class="na">create</span><span class="p">(</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">429</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">time</span><span class="p">.</span><span class="na">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">269</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">time</span><span class="p">.</span><span class="na">LocalDate</span><span class="p">.</span><span class="na">withDayOfMonth</span><span class="p">(</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">1099</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">time</span><span class="p">.</span><span class="na">LocalDateTime</span><span class="p">.</span><span class="na">withDayOfMonth</span><span class="p">(</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">1023</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">eighteight</span><span class="p">.</span><span class="na">withInvalidDate</span><span class="p">(</span><span class="n">eighteight</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">38</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">sun</span><span class="p">.</span><span class="na">reflect</span><span class="p">.</span><span class="na">NativeMethodAccessorImpl</span><span class="p">.</span><span class="na">invoke0</span><span class="p">(</span><span class="n">Native</span><span class="w"> </span><span class="n">Method</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">sun</span><span class="p">.</span><span class="na">reflect</span><span class="p">.</span><span class="na">NativeMethodAccessorImpl</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">NativeMethodAccessorImpl</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">62</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">sun</span><span class="p">.</span><span class="na">reflect</span><span class="p">.</span><span class="na">DelegatingMethodAccessorImpl</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">DelegatingMethodAccessorImpl</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">43</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">java</span><span class="p">.</span><span class="na">lang</span><span class="p">.</span><span class="na">reflect</span><span class="p">.</span><span class="na">Method</span><span class="p">.</span><span class="na">invoke</span><span class="p">(</span><span class="n">Method</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">498</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">model</span><span class="p">.</span><span class="na">FrameworkMethod$1</span><span class="p">.</span><span class="na">runReflectiveCall</span><span class="p">(</span><span class="n">FrameworkMethod</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">50</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">internal</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">model</span><span class="p">.</span><span class="na">ReflectiveCallable</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">ReflectiveCallable</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">12</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">model</span><span class="p">.</span><span class="na">FrameworkMethod</span><span class="p">.</span><span class="na">invokeExplosively</span><span class="p">(</span><span class="n">FrameworkMethod</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">47</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">internal</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">statements</span><span class="p">.</span><span class="na">InvokeMethod</span><span class="p">.</span><span class="na">evaluate</span><span class="p">(</span><span class="n">InvokeMethod</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">17</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">ParentRunner</span><span class="p">.</span><span class="na">runLeaf</span><span class="p">(</span><span class="n">ParentRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">325</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">BlockJUnit4ClassRunner</span><span class="p">.</span><span class="na">runChild</span><span class="p">(</span><span class="n">BlockJUnit4ClassRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">78</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">BlockJUnit4ClassRunner</span><span class="p">.</span><span class="na">runChild</span><span class="p">(</span><span class="n">BlockJUnit4ClassRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">57</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">ParentRunner$3</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">ParentRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">290</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">ParentRunner$1</span><span class="p">.</span><span class="na">schedule</span><span class="p">(</span><span class="n">ParentRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">71</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">ParentRunner</span><span class="p">.</span><span class="na">runChildren</span><span class="p">(</span><span class="n">ParentRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">288</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">ParentRunner</span><span class="p">.</span><span class="na">access$000</span><span class="p">(</span><span class="n">ParentRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">58</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">ParentRunner$2</span><span class="p">.</span><span class="na">evaluate</span><span class="p">(</span><span class="n">ParentRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">268</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runners</span><span class="p">.</span><span class="na">ParentRunner</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">ParentRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">363</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">org</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">runner</span><span class="p">.</span><span class="na">JUnitCore</span><span class="p">.</span><span class="na">run</span><span class="p">(</span><span class="n">JUnitCore</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">137</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">intellij</span><span class="p">.</span><span class="na">junit4</span><span class="p">.</span><span class="na">JUnit4IdeaTestRunner</span><span class="p">.</span><span class="na">startRunnerWithArgs</span><span class="p">(</span><span class="n">JUnit4IdeaTestRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">68</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">intellij</span><span class="p">.</span><span class="na">rt</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">IdeaTestRunner$Repeater</span><span class="p">.</span><span class="na">startRunnerWithArgs</span><span class="p">(</span><span class="n">IdeaTestRunner</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">33</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">intellij</span><span class="p">.</span><span class="na">rt</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">JUnitStarter</span><span class="p">.</span><span class="na">prepareStreamsAndStart</span><span class="p">(</span><span class="n">JUnitStarter</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">230</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">	</span><span class="n">at</span><span class="w"> </span><span class="n">com</span><span class="p">.</span><span class="na">intellij</span><span class="p">.</span><span class="na">rt</span><span class="p">.</span><span class="na">junit</span><span class="p">.</span><span class="na">JUnitStarter</span><span class="p">.</span><span class="na">main</span><span class="p">(</span><span class="n">JUnitStarter</span><span class="p">.</span><span class="na">java</span><span class="p">:</span><span class="n">58</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="调节器与查询"><strong>调节器与查询</strong></h2>
+<p>给定时态值，用户希望自定义调整，或检索给定值的有关信息。</p>
+<p>解决方式：创建TemporalAdjuster或规划TemporalQuery接口。</p>
+<p>1.TemporalAdjuster接口定义了一个名为adjustInto的方法，它传入的Temporal值作为参数，并返回调整后的值。而TemporalAdjusters类包括一系列用作静态方法的调节器（adjuster）</p>
+<p>static TemporalAdjuster firstDayOfNextMonth()</p>
+<p>static TemporalAdjuster firstDayOfNextYear()</p>
+<p>static TemporalAdjuster firstDayOfYear()</p>
+<p>static TemporalAdjuster firstInMonth(DayOfWeek dayOfWeek)等</p>
+<p>TemporalAdjusters类定义的部分静态方法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.Test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.DayOfWeek</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDateTime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Month</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.TemporalAdjuster</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.TemporalAdjusters</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.Assert.assertEquals</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">eightten</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">adjusters</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">start</span><span class="o">=</span><span class="n">LocalDateTime</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2017</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">FEBRUARY</span><span class="p">,</span><span class="n">2</span><span class="p">,</span><span class="n">11</span><span class="p">,</span><span class="n">30</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDateTime</span><span class="w"> </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">firstDayOfNextMonth</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2017-03-01T11:30&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">next</span><span class="p">(</span><span class="n">DayOfWeek</span><span class="p">.</span><span class="na">THURSDAY</span><span class="p">));</span><span class="c1">//TemporalAdjusters类的next (DayOfWeek)方法用于返回下一个day-of-week TemporalAdjuster对象，该对象可用于获取新的Date对象，该对象是具有相同匹配DayOfWeek的下一个日期，该日期作为参数从任何Date对象上传递将应用此TempotralAdjuster。 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2017-02-09T11:30&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">end</span><span class="o">=</span><span class="n">start</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">previousOrSame</span><span class="p">(</span><span class="n">DayOfWeek</span><span class="p">.</span><span class="na">THURSDAY</span><span class="p">));</span><span class="c1">//TemporalAdjusters类的previousOrSame (DayOfWeek)方法用于返回先前或相同的day-of-week TemporalAdjuster对象，该对象可用于获取新的Date对象，该对象是先前或相同日期的具有相同匹配的day-of-week作为参数从任何对象传递应用此TempotralAdjuster的Date对象。</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">assertEquals</span><span class="p">(</span><span class="s">&#34;2017-02-02T11:30&#34;</span><span class="p">,</span><span class="n">end</span><span class="p">.</span><span class="na">toString</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">end</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">结果为</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2017</span><span class="o">-</span><span class="n">03</span><span class="o">-</span><span class="n">01T11</span><span class="p">:</span><span class="n">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2017</span><span class="o">-</span><span class="n">02</span><span class="o">-</span><span class="n">09T11</span><span class="p">:</span><span class="n">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">2017</span><span class="o">-</span><span class="n">02</span><span class="o">-</span><span class="n">02T11</span><span class="p">:</span><span class="n">30</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>应用：假设员工在一个月中领取两次工资，且发薪日是每月15日和最后一天；如果某个发薪日为周末，则提前到周五。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.Test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.DayOfWeek</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Month</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.Temporal</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.TemporalAdjuster</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.TemporalAdjusters</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.util.stream.IntStream</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">org.junit.Assert.assertEquals</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">PayDayAdjuster</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TemporalAdjuster</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="n">Temporal</span><span class="w"> </span><span class="nf">adjustInto</span><span class="p">(</span><span class="n">Temporal</span><span class="w"> </span><span class="n">input</span><span class="p">){</span><span class="c1">//adjustInto方法已被添加到实现TemporalAdjuster接口的PaydayAdjuster类中</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">date</span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">input</span><span class="p">);</span><span class="c1">//from方法可以将任何时态对象转换为LocalDate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">day</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="na">getDayOfMonth</span><span class="p">()</span><span class="o">&lt;</span><span class="n">15</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">day</span><span class="o">=</span><span class="n">15</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="k">else</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">day</span><span class="o">=</span><span class="n">date</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">lastDayOfMonth</span><span class="p">())</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">getDayOfMonth</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">.</span><span class="na">withDayOfMonth</span><span class="p">(</span><span class="n">day</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="p">(</span><span class="n">date</span><span class="p">.</span><span class="na">getDayOfWeek</span><span class="p">()</span><span class="o">==</span><span class="w"> </span><span class="n">DayOfWeek</span><span class="p">.</span><span class="na">SATURDAY</span><span class="o">||</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">date</span><span class="p">.</span><span class="na">getDayOfWeek</span><span class="p">()</span><span class="o">==</span><span class="n">DayOfWeek</span><span class="p">.</span><span class="na">SUNDAY</span><span class="p">){</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">TemporalAdjusters</span><span class="p">.</span><span class="na">previous</span><span class="p">(</span><span class="n">DayOfWeek</span><span class="p">.</span><span class="na">FRIDAY</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">input</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">date</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">payDay</span><span class="p">()</span><span class="w"> </span><span class="kd">throws</span><span class="w"> </span><span class="n">Exception</span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">TemporalAdjuster</span><span class="w"> </span><span class="n">adjuster</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">PayDayAdjuster</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="n">1</span><span class="p">,</span><span class="n">14</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">mapToObj</span><span class="p">(</span><span class="n">day</span><span class="o">-&gt;</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2017</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">JULY</span><span class="p">,</span><span class="n">day</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">date</span><span class="o">-&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">14</span><span class="p">,</span><span class="n">date</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">adjuster</span><span class="p">).</span><span class="na">getDayOfMonth</span><span class="p">()));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">IntStream</span><span class="p">.</span><span class="na">rangeClosed</span><span class="p">(</span><span class="n">15</span><span class="p">,</span><span class="n">31</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">mapToObj</span><span class="p">(</span><span class="n">day</span><span class="o">-&gt;</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2017</span><span class="p">,</span><span class="n">Month</span><span class="p">.</span><span class="na">JULY</span><span class="p">,</span><span class="n">day</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">date</span><span class="o">-&gt;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">assertEquals</span><span class="p">(</span><span class="n">31</span><span class="p">,</span><span class="n">date</span><span class="p">.</span><span class="na">with</span><span class="p">(</span><span class="n">adjuster</span><span class="p">).</span><span class="na">getDayOfMonth</span><span class="p">()));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>时态类对象（LocalDate类，LocalTime类）都有一个方法叫做query()，可以针对日期进行查询，R query(TemporalQuery query)这个方法是一个泛型方法，返回的数据就是传入的泛型类的类型，TemporalQuery是一个泛型接口，里面有一个抽象方法是R queryFrom(TemporalAccessor temporal)，TemporalAccessor是Temporal的父接口，实际上也就是LocalDate,LocalDateTime相关类的顶级父接口，这个**queryFrom()**的实现逻辑就是，传入一个日期/时间对象通过自定义逻辑返回数据。
+如果要计划日期距离某一天特定天数差距多少天，可以自定义类实现TemporalQuery接口并且作为参数传到query方法中。</p>
+<p><strong>TemporalQuery的应用</strong></p>
+<p>TemporalQuery接口用作时态对象中query方法的参数。query方法调用TemporalQuery.queryFrom(TemporalAccessor)方法（传入this作为参数），并返回所需要的查询。TemporalAccessor接口定义的所有方法均可用于查询操作。Date-Time API还包括一个名为TemporalQueries的类，它定义了许多常见查询的常量：</p>
+<p>static TemporalQuery<LocalDate> localDate()</p>
+<p>static TemporalQuery<LocalTime> localTime()</p>
+<p>static TemporalQuery<ZoneId> zone()</p>
+<p>static TemporalQuery<ZoneId> zoneId()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="c1">//计算当前时间距离下一个劳动节还有多少天？</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">org.junit.Test</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Month</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.ChronoUnit</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.TemporalAccessor</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.TemporalQuery</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">UtilDayQueryImpl</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">TemporalQuery</span><span class="o">&lt;</span><span class="n">Long</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nd">@Override</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Long</span><span class="w"> </span><span class="nf">queryFrom</span><span class="p">(</span><span class="n">TemporalAccessor</span><span class="w"> </span><span class="n">temporalAccessor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 1. TemporalAccessor是LocalDateTime的顶级父接口，相当LocalDate就是这个接口，将Temporal转换为LocalDate 进行使用</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">from</span><span class="p">(</span><span class="n">temporalAccessor</span><span class="p">);</span><span class="c1">//from()方法用于根据给定的TemporalAccessor对象创建LocalDate的实例</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 2.封装当年劳动节时间</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">laborDay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="na">getYear</span><span class="p">(),</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">MAY</span><span class="p">,</span><span class="w"> </span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 3.判断当前时间是否已经超过了当年的劳动节</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">now</span><span class="p">.</span><span class="na">isAfter</span><span class="p">(</span><span class="n">laborDay</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">laborDay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">laborDay</span><span class="p">.</span><span class="na">plusYears</span><span class="p">(</span><span class="n">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">// 4.通过ChronoUnit的between来计算两个时间差</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kt">long</span><span class="w"> </span><span class="n">days</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">DAYS</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">now</span><span class="p">,</span><span class="w"> </span><span class="n">laborDay</span><span class="p">);</span><span class="c1">//下例有</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">days</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">//测试</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nd">@Test</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//获取今天日期，计算距离下一个劳动节还有多少天</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//调用now的query方法，将我们自己实现的UtilDayQueryImpl作为参数传入</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Long</span><span class="w"> </span><span class="n">day</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="p">.</span><span class="na">query</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">UtilDayQueryImpl</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">         </span><span class="c1">//2022-10-09</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">now</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="c1">//204</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="n">day</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="解析与格式化">解析与格式化</h2>
+<ul>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/format/DateTimeFormatter.html" target="_blank" rel="noopener noreffer ">DateTimeFormatter</a>类用于创建日期/时间格式，可以在解析和格式化中使用。</li>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/temporal/ChronoUnit.html" target="_blank" rel="noopener noreffer ">ChronoUnit</a>：计算出两个时间点之间的时间距离，可按多种时间单位计算。</li>
+<li><a href="http://download.java.net/jdk8/docs/api/java/time/temporal/TemporalAdjuster.html" target="_blank" rel="noopener noreffer ">TemporalAdjuster</a>：各种日期计算功能。</li>
+</ul>
+<p>DateTimeFormatter类提供大量预定义格式化器，包括常量（ISO_LOCAL_DATE)、模式字母（如uuuu-MMM-dd）以及本地化样式（ofLocalizedDate（dateStyle）） 在Date-time API中，所有的类均提供parse和format方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">//对日期进行格式化
+</span></span><span class="line"><span class="cl">import java.sql.SQLOutput;
+</span></span><span class="line"><span class="cl">import java.time.LocalDate;
+</span></span><span class="line"><span class="cl">import java.time.LocalDateTime;
+</span></span><span class="line"><span class="cl">import java.time.Month;
+</span></span><span class="line"><span class="cl">import java.time.format.DateTimeFormatter;
+</span></span><span class="line"><span class="cl">import java.time.format.FormatStyle;
+</span></span><span class="line"><span class="cl">import java.util.Locale;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">public class eightthirty {
+</span></span><span class="line"><span class="cl">    public static void main(String[] args) {
+</span></span><span class="line"><span class="cl">        LocalDateTime now = LocalDateTime.now();
+</span></span><span class="line"><span class="cl">        String text = now.format(DateTimeFormatter.ISO_DATE_TIME);//将LocalDateTime格式化为字符串
+</span></span><span class="line"><span class="cl">        LocalDateTime dateTime = LocalDateTime.parse(text);//将字符串解析为LocalDateTime
+</span></span><span class="line"><span class="cl">        LocalDate date = LocalDate.of(2017, Month.MARCH, 13);
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;Full:&#34; + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)));
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;long:&#34; + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)));
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;Medium:&#34; + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)));
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;Short:&#34; + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)));
+</span></span><span class="line"><span class="cl">        System.out.println(&#34;France:&#34; + date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(Locale.FRANCE)));
+</span></span><span class="line"><span class="cl">        Locale loc = new Locale.Builder().setLanguage(&#34;sr&#34;).setScript(&#34;Latn&#34;).setRegion(&#34;RS&#34;).build();
+</span></span><span class="line"><span class="cl">//setScript设置脚本        System.out.println(&#34;Serbian&#34;+date.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL).withLocale(loc)));
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">结果是：
+</span></span><span class="line"><span class="cl">Full:2017年3月13日 星期一
+</span></span><span class="line"><span class="cl">long:2017年3月13日
+</span></span><span class="line"><span class="cl">Medium:2017-3-13
+</span></span><span class="line"><span class="cl">Short:17-3-13
+</span></span><span class="line"><span class="cl">France:lundi 13 mars 2017
+</span></span><span class="line"><span class="cl">Serbianponedeljak, 13. mart 2017.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>查找具有非整数小时偏移量的时区</strong></p>
+<p>大部分时区的UTC偏移量均为小时的整数，当然有些地区也存在UTC偏移量为半小时甚至四十五分钟的时区，该如何解决？</p>
+<p>方案：获取每个时区的地区偏移量，并计算总秒数除以3600之后的剩余时间。通过ZoneOffset类查找每个时区ID相对于UTC的偏移量，并将其与3600秒（1小时）进行比较。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Instant</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.ZoneId</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.ZoneOffset</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.ZonedDateTime</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.format.DateTimeFormatter</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.format.FormatStyle</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import static</span><span class="w"> </span><span class="nn">java.util.Comparator.comparingInt</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">FunnyOffsets</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Instant</span><span class="w"> </span><span class="n">instant</span><span class="o">=</span><span class="w"> </span><span class="n">Instant</span><span class="p">.</span><span class="na">now</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ZonedDateTime</span><span class="w"> </span><span class="n">current</span><span class="o">=</span><span class="n">instant</span><span class="p">.</span><span class="na">atZone</span><span class="p">(</span><span class="n">ZoneId</span><span class="p">.</span><span class="na">systemDefault</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;Current time is %s%n%n&#34;</span><span class="p">,</span><span class="n">current</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;%10s %20s %13s%n&#34;</span><span class="p">,</span><span class="s">&#34;Offset&#34;</span><span class="p">,</span><span class="s">&#34;ZoneId&#34;</span><span class="p">,</span><span class="s">&#34;Time&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">ZoneId</span><span class="p">.</span><span class="na">getAvailableZoneIds</span><span class="p">().</span><span class="na">stream</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">map</span><span class="p">(</span><span class="n">ZoneId</span><span class="p">::</span><span class="n">of</span><span class="p">)</span><span class="c1">//将地区ID映射到时区ID</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">filter</span><span class="p">(</span><span class="n">zoneId</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">ZoneOffset</span><span class="w"> </span><span class="n">offset</span><span class="o">=</span><span class="n">instant</span><span class="p">.</span><span class="na">atZone</span><span class="p">(</span><span class="n">zoneId</span><span class="p">).</span><span class="na">getOffset</span><span class="p">();</span><span class="c1">//计算偏移量</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="k">return</span><span class="w"> </span><span class="n">offset</span><span class="p">.</span><span class="na">getTotalSeconds</span><span class="p">()</span><span class="o">%</span><span class="p">(</span><span class="n">60</span><span class="o">*</span><span class="n">60</span><span class="p">)</span><span class="o">!=</span><span class="n">0</span><span class="p">;</span><span class="c1">//仅返回偏移量无法被3600整除的时区</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">})</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">sorted</span><span class="p">(</span><span class="n">comparingInt</span><span class="p">(</span><span class="n">zoneId</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">instant</span><span class="p">.</span><span class="na">atZone</span><span class="p">(</span><span class="n">zoneId</span><span class="p">).</span><span class="na">getOffset</span><span class="p">().</span><span class="na">getTotalSeconds</span><span class="p">()))</span><span class="c1">//按照offset偏移量排序</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">.</span><span class="na">forEach</span><span class="p">(</span><span class="n">zoneId</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">ZonedDateTime</span><span class="w"> </span><span class="n">zdt</span><span class="o">=</span><span class="n">current</span><span class="p">.</span><span class="na">withZoneSameInstant</span><span class="p">(</span><span class="n">zoneId</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                    </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;%10s %25s %10s%n&#34;</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">zdt</span><span class="p">.</span><span class="na">getOffset</span><span class="p">(),</span><span class="n">zoneId</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                            </span><span class="n">zdt</span><span class="p">.</span><span class="na">format</span><span class="p">(</span><span class="n">DateTimeFormatter</span><span class="p">.</span><span class="na">ofLocalizedTime</span><span class="p">(</span><span class="n">FormatStyle</span><span class="p">.</span><span class="na">SHORT</span><span class="p">)));</span><span class="c1">//ofLocalizedTime和本地时间比较</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">                </span><span class="p">});</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">结果为</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Current</span><span class="w"> </span><span class="n">time</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">2022</span><span class="o">-</span><span class="n">10</span><span class="o">-</span><span class="n">04T19</span><span class="p">:</span><span class="n">32</span><span class="p">:</span><span class="n">12</span><span class="p">.</span><span class="na">447</span><span class="o">+</span><span class="n">08</span><span class="p">:</span><span class="n">00</span><span class="o">[</span><span class="n">Asia</span><span class="o">/</span><span class="n">Shanghai</span><span class="o">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Offset</span><span class="w">               </span><span class="n">ZoneId</span><span class="w">          </span><span class="n">Time</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">-</span><span class="n">09</span><span class="p">:</span><span class="n">30</span><span class="w">         </span><span class="n">Pacific</span><span class="o">/</span><span class="n">Marquesas</span><span class="w">     </span><span class="n">上午2</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">-</span><span class="n">02</span><span class="p">:</span><span class="n">30</span><span class="w">          </span><span class="n">America</span><span class="o">/</span><span class="n">St_Johns</span><span class="w">     </span><span class="n">上午9</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">-</span><span class="n">02</span><span class="p">:</span><span class="n">30</span><span class="w">       </span><span class="n">Canada</span><span class="o">/</span><span class="n">Newfoundland</span><span class="w">     </span><span class="n">上午9</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">03</span><span class="p">:</span><span class="n">30</span><span class="w">                      </span><span class="n">Iran</span><span class="w">     </span><span class="n">下午3</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">03</span><span class="p">:</span><span class="n">30</span><span class="w">               </span><span class="n">Asia</span><span class="o">/</span><span class="n">Tehran</span><span class="w">     </span><span class="n">下午3</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">04</span><span class="p">:</span><span class="n">30</span><span class="w">                </span><span class="n">Asia</span><span class="o">/</span><span class="n">Kabul</span><span class="w">     </span><span class="n">下午4</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">05</span><span class="p">:</span><span class="n">30</span><span class="w">              </span><span class="n">Asia</span><span class="o">/</span><span class="n">Kolkata</span><span class="w">     </span><span class="n">下午5</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">05</span><span class="p">:</span><span class="n">30</span><span class="w">              </span><span class="n">Asia</span><span class="o">/</span><span class="n">Colombo</span><span class="w">     </span><span class="n">下午5</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">05</span><span class="p">:</span><span class="n">30</span><span class="w">             </span><span class="n">Asia</span><span class="o">/</span><span class="n">Calcutta</span><span class="w">     </span><span class="n">下午5</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">05</span><span class="p">:</span><span class="n">45</span><span class="w">            </span><span class="n">Asia</span><span class="o">/</span><span class="n">Kathmandu</span><span class="w">     </span><span class="n">下午5</span><span class="p">:</span><span class="n">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">05</span><span class="p">:</span><span class="n">45</span><span class="w">             </span><span class="n">Asia</span><span class="o">/</span><span class="n">Katmandu</span><span class="w">     </span><span class="n">下午5</span><span class="p">:</span><span class="n">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">06</span><span class="p">:</span><span class="n">30</span><span class="w">               </span><span class="n">Asia</span><span class="o">/</span><span class="n">Yangon</span><span class="w">     </span><span class="n">下午6</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">06</span><span class="p">:</span><span class="n">30</span><span class="w">              </span><span class="n">Asia</span><span class="o">/</span><span class="n">Rangoon</span><span class="w">     </span><span class="n">下午6</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">06</span><span class="p">:</span><span class="n">30</span><span class="w">              </span><span class="n">Indian</span><span class="o">/</span><span class="n">Cocos</span><span class="w">     </span><span class="n">下午6</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">08</span><span class="p">:</span><span class="n">30</span><span class="w">            </span><span class="n">Asia</span><span class="o">/</span><span class="n">Pyongyang</span><span class="w">     </span><span class="n">下午8</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">08</span><span class="p">:</span><span class="n">45</span><span class="w">           </span><span class="n">Australia</span><span class="o">/</span><span class="n">Eucla</span><span class="w">     </span><span class="n">下午8</span><span class="p">:</span><span class="n">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">09</span><span class="p">:</span><span class="n">30</span><span class="w">           </span><span class="n">Australia</span><span class="o">/</span><span class="n">North</span><span class="w">     </span><span class="n">下午9</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">09</span><span class="p">:</span><span class="n">30</span><span class="w">          </span><span class="n">Australia</span><span class="o">/</span><span class="n">Darwin</span><span class="w">     </span><span class="n">下午9</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">10</span><span class="p">:</span><span class="n">30</span><span class="w">      </span><span class="n">Australia</span><span class="o">/</span><span class="n">Yancowinna</span><span class="w">    </span><span class="n">下午10</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">10</span><span class="p">:</span><span class="n">30</span><span class="w">        </span><span class="n">Australia</span><span class="o">/</span><span class="n">Adelaide</span><span class="w">    </span><span class="n">下午10</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">10</span><span class="p">:</span><span class="n">30</span><span class="w">     </span><span class="n">Australia</span><span class="o">/</span><span class="n">Broken_Hill</span><span class="w">    </span><span class="n">下午10</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">10</span><span class="p">:</span><span class="n">30</span><span class="w">           </span><span class="n">Australia</span><span class="o">/</span><span class="n">South</span><span class="w">    </span><span class="n">下午10</span><span class="p">:</span><span class="n">02</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">13</span><span class="p">:</span><span class="n">45</span><span class="w">                   </span><span class="n">NZ</span><span class="o">-</span><span class="n">CHAT</span><span class="w">     </span><span class="n">上午1</span><span class="p">:</span><span class="n">17</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="o">+</span><span class="n">13</span><span class="p">:</span><span class="n">45</span><span class="w">           </span><span class="n">Pacific</span><span class="o">/</span><span class="n">Chatham</span><span class="w">     </span><span class="n">上午1</span><span class="p">:</span><span class="n">17</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="获取事件之间的时间"><strong>获取事件之间的时间</strong></h2>
+<p>将时间转换成人们可读的格式，使用时态类（temporal class）定义的between或until方法，或period类定义的between方法以生成period对象，若不需要转换时间格式，则使用以秒和纳秒为单位对时间量进行建模的duration类。在java.time.temporal包中，TempoalUnit接口由定义在同一个包中的ChronoUnit枚举实现。TemporalUnit接口定义了一个名为between的方法，它传入两个TemporalUnit实例并返回二者之间的时间量（long型数据）。</p>
+<p><strong>计算当天到美国选举日之间的天数</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Month</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.temporal.ChronoUnit</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">USchairman</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">electionary</span><span class="o">=</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">2022</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">NOVEMBER</span><span class="p">,</span><span class="n">3</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">today</span><span class="o">=</span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;%d day(s) to go ...%n&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">ChronoUnit</span><span class="p">.</span><span class="na">DAYS</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">today</span><span class="p">,</span><span class="n">electionary</span><span class="p">));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">结果是</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">31</span><span class="w"> </span><span class="nf">day</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">go</span><span class="p">...</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>用period类计算时间差</strong></p>
+<p>主要是Period类方法getYears（），getMonths（）和getDays（）来计算.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-java" data-lang="java"><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.LocalDate</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Month</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kn">import</span><span class="w"> </span><span class="nn">java.time.Period</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">TestPeriod</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">today</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">now</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;Today : &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">today</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">birthDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LocalDate</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">1993</span><span class="p">,</span><span class="w"> </span><span class="n">Month</span><span class="p">.</span><span class="na">OCTOBER</span><span class="p">,</span><span class="w"> </span><span class="n">19</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&#34;BirthDate : &#34;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">birthDate</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">Period</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Period</span><span class="p">.</span><span class="na">between</span><span class="p">(</span><span class="n">birthDate</span><span class="p">,</span><span class="w"> </span><span class="n">today</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">printf</span><span class="p">(</span><span class="s">&#34;年龄 : %d 年 %d 月 %d 日&#34;</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getYears</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getMonths</span><span class="p">(),</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="na">getDays</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">结果是</span><span class="err">：</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">Today</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">2022</span><span class="o">-</span><span class="n">10</span><span class="o">-</span><span class="n">08</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">BirthDate</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">1993</span><span class="o">-</span><span class="n">10</span><span class="o">-</span><span class="n">19</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">年龄</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">28</span><span class="w"> </span><span class="n">年</span><span class="w"> </span><span class="n">11</span><span class="w"> </span><span class="n">月</span><span class="w"> </span><span class="n">19</span><span class="w"> </span><span class="n">日</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-08-05</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="/java%E4%B9%8Btime%E5%8C%85/" data-title="java.time包" data-hashtags="Java"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="/java%E4%B9%8Btime%E5%8C%85/" data-hashtag="Java"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Linkedin" data-sharer="linkedin" data-url="/java%E4%B9%8Btime%E5%8C%85/"><i class="fab fa-linkedin fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="/java%E4%B9%8Btime%E5%8C%85/" data-title="java.time包"><i data-svg-src="/lib/simple-icons/icons/line.min.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="/java%E4%B9%8Btime%E5%8C%85/" data-title="java.time包"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/java/">Java</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/java%E6%B3%A8%E8%A7%A3%E5%92%8C%E5%8F%8D%E5%B0%84/" class="prev" rel="prev" title="Java注解和反射"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Java注解和反射</a>
+            <a href="/java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E5%92%8C%E6%AD%BB%E9%94%81/" class="next" rel="next" title="JVM内存模型和死锁">JVM内存模型和死锁<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2024</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Lup</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/lightgallery/css/lightgallery-bundle.min.cb289e50cc9ac33906b9be77654f1340844150a9150a1b4be88cab7b044c4e95.css" integrity="sha256-yyieUMyawzkGub53ZU8TQIRBUKkVChtL6IyrewRMTpU="><link rel="stylesheet" href="/lib/katex/katex.min.76e39bd605d45b2d1944123c66608b0c8bb9baeb70720b212571531c7cf9bc2a.css" integrity="sha256-duOb1gXUWy0ZRBI8ZmCLDIu5uutwcgshJXFTHHz5vCo="><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.efcd9994416f8ef0e9904c0ebc34d39ab92f5fe72a60224553434d3a818b25e5.js" integrity="sha256-782ZlEFvjvDpkEwOvDTTmrkvX+cqYCJFU0NNOoGLJeU="></script><script type="text/javascript" src="/lib/algoliasearch/algoliasearch-lite.umd.min.bcee652c2a6d52152e89870be6fa7a3a76ca9ed62e0eea513b6f4f55f232613d.js" integrity="sha256-vO5lLCptUhUuiYcL5vp6OnbKntYuDupRO29PVfIyYT0="></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.e76fb8d9f216898822b92b5be7fc0b3085b9a3685b14089d64a10935e83a08c5.js" integrity="sha256-52+42fIWiYgiuStb5/wLMIW5o2hbFAidZKEJNeg6CMU="></script><script type="text/javascript" src="/lib/lightgallery/lightgallery.min.715d25cf5a06cfcc60d28bd6b1478efb6a2c9bf28928999d7f1c517823df58bc.js" integrity="sha256-cV0lz1oGz8xg0ovWsUeO+2osm/KJKJmdfxxReCPfWLw="></script><script type="text/javascript" src="/lib/lightgallery/plugins/thumbnail/lg-thumbnail.min.c5b7c8ff4db1970dcec1614282b61f421ecf148ce44488247553b75ad442c79a.js" integrity="sha256-xbfI/02xlw3OwWFCgrYfQh7PFIzkRIgkdVO3WtRCx5o="></script><script type="text/javascript" src="/lib/lightgallery/plugins/zoom/lg-zoom.min.b11a55fa9ecf3559314c8095e293ba438a04c91624bf7a420e092a2930a07956.js" integrity="sha256-sRpV+p7PNVkxTICV4pO6Q4oEyRYkv3pCDgkqKTCgeVY="></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.21708db6d7f8e20387183d7358648065dc45f7d635370fedb24df591f68f1e6b.js" integrity="sha256-IXCNttf44gOHGD1zWGSAZdxF99Y1Nw/tsk31kfaPHms="></script><script type="text/javascript" src="/lib/sharer/sharer.min.cc31d902aa4f3fcc8bb8c81aa534a4e2103e9b11f65b9fbd5b7156e089889ceb.js" integrity="sha256-zDHZAqpPP8yLuMgapTSk4hA+mxH2W5+9W3FW4ImInOs="></script><script type="text/javascript" src="/lib/katex/katex.min.eb18207487161674e717087c317db14ac1a62dadaecccb802499ce173bfeb739.js" integrity="sha256-6xggdIcWFnTnFwh8MX2xSsGmLa2uzMuAJJnOFzv+tzk="></script><script type="text/javascript" src="/lib/katex/contrib/auto-render.min.cb7f4ca60ed5dc3e258415f8c7a3b46d4a93578a52adf83011f18a7f190e7602.js" integrity="sha256-y39Mpg7V3D4lhBX4x6O0bUqTV4pSrfgwEfGKfxkOdgI="></script><script type="text/javascript" src="/lib/katex/contrib/copy-tex.min.52ce78fab4860d24ef22128a52ce24ca01368a9034457a565a1d3fccbab0ddbb.js" integrity="sha256-Us54+rSGDSTvIhKKUs4kygE2ipA0RXpWWh0/zLqw3bs="></script><script type="text/javascript" src="/lib/katex/contrib/mhchem.min.5c0a121a8b490afc85860a522347aeb34fb508c6b23044e5d29f6b2194227b51.js" integrity="sha256-XAoSGotJCvyFhgpSI0eus0+1CMayMETl0p9rIZQie1E="></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":50},"comment":{},"lightgallery":true,"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"algoliaAppID":"","algoliaIndex":"","algoliaSearchKey":"","highlightTag":"em","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"algolia"}};</script><script type="text/javascript" src="/js/theme.min.d7121d72cd85153ec9d35a888cee3eb28c2700ca763f649a538f6c772d750021.js" integrity="sha256-1xIdcs2FFT7J01qIjO4+sownAMp2P2SaU49sdy11ACE="></script></body>
+</html>
